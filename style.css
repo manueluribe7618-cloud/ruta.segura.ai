@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #07111f;
+  color: white;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: relative;
+  z-index: 1000;
+  background: linear-gradient(180deg, #081827, #0f2538);
+  padding: 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #00ff9d, #00a3ff);
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+}
+
+.brand h1 {
+  font-size: 24px;
+}
+
+.brand p {
+  font-size: 13px;
+  color: #9fb3c8;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 22px;
+}
+
+.card h2 {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: #b8c7d9;
+  font-size: 14px;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 13px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  margin-bottom: 6px;
+  background: #10263a;
+  color: white;
+  font-size: 14px;
+  position: relative;
+  z-index: 1002;
+}
+
+button {
+  margin-top: 18px;
+  background: linear-gradient(135deg, #00ff9d, #00c2ff);
+  color: #00131f;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.location-box {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(0, 255, 157, 0.08);
+  border: 1px solid rgba(0, 255, 157, 0.25);
+}
+
+.location-box span {
+  display: block;
+  font-size: 12px;
+  color: #9fb3c8;
+}
+
+.location-box strong {
+  color: #00ff9d;
+  font-size: 14px;
+}
+
+.map-section {
+  position: relative;
+  height: 100vh;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.top-panel {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.top-panel div {
+  background: rgba(7, 17, 31, 0.88);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  color: #9fb3c8;
+}
+
+.top-panel strong {
+  font-size: 19px;
+}
+
+.bottom-panel {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  width: 430px;
+  z-index: 999;
+  background: rgba(7, 17, 31, 0.9);
+  border-radius: 22px;
+  padding: 20px;
+}
+
+.bottom-panel h3 {
+  color: #00ff9d;
+  margin-bottom: 8px;
+}
+
+.bottom-panel p {
+  line-height: 1.5;
+}

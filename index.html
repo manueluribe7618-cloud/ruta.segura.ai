@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RutaSegura AI</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="sidebar">
+      <div class="brand">
+        <div class="logo">🛡️</div>
+        <div>
+          <h1>RutaSegura AI</h1>
+          <p>Predice el riesgo, protege tu camino</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Configura tu ruta</h2>
+
+        <label>Tipo de usuario</label>
+        <select id="vehicleType">
+          <option value="carro">🚗 Carro</option>
+          <option value="moto">🏍️ Moto</option>
+          <option value="bicicleta">🚴 Bicicleta</option>
+          <option value="peaton">🚶 Peatón</option>
+        </select>
+
+        <label>Destino</label>
+        <input
+          id="destinationInput"
+          type="text"
+          placeholder="Ej: Parque de la 93"
+        />
+
+        <label>Prioridad de ruta</label>
+        <select id="routePriority">
+          <option value="segura">🛡️ Más segura</option>
+          <option value="rapida">⚡ Más rápida</option>
+          <option value="equilibrada">⚖️ Equilibrada</option>
+        </select>
+
+        <div class="time-box">
+          <span>Hora actual detectada</span>
+          <strong id="currentTimeValue">Detectando...</strong>
+          <small id="timeRiskMode">Modo de riesgo: calculando</small>
+        </div>
+
+        <button id="calculateBtn">Calcular ruta segura</button>
+
+        <div class="location-box">
+          <span>Ubicación actual</span>
+          <strong id="streetValue">Detectando calle...</strong>
+        </div>
+      </div>
+
+      <div class="card report-box">
+        <h2>Reporte ciudadano</h2>
+        <p>
+          Reporta con un toque lo que está pasando en esta zona para que la IA
+          ajuste el riesgo en tiempo real.
+        </p>
+
+        <div class="report-grid">
+          <button type="button" class="report-btn danger" data-report="actividad_sospechosa">
+            👀 Actividad sospechosa
+          </button>
+
+          <button type="button" class="report-btn danger" data-report="zona_mal_iluminada">
+            🌑 Zona mal iluminada
+          </button>
+
+          <button type="button" class="report-btn danger" data-report="robo">
+            🚨 Robo / intento de robo
+          </button>
+
+          <button type="button" class="report-btn danger" data-report="accidente">
+            💥 Accidente
+          </button>
+
+          <button type="button" class="report-btn danger" data-report="via_peligrosa">
+            🛣️ Vía peligrosa
+          </button>
+
+          <button type="button" class="report-btn safe" data-report="zona_segura">
+            ✅ Zona segura
+          </button>
+        </div>
+      </div>
+
+      <div class="card feedback-box">
+        <h2>Feedback de ruta</h2>
+        <p>Confirma si la percepción de seguridad fue correcta.</p>
+
+        <div class="report-grid">
+          <button type="button" class="feedback-btn safe" data-feedback="me_senti_seguro">
+            👍 Me sentí seguro
+          </button>
+
+          <button type="button" class="feedback-btn danger" data-feedback="me_senti_inseguro">
+            👎 Me sentí inseguro
+          </button>
+
+          <button type="button" class="feedback-btn safe" data-feedback="ia_acerto">
+            🤖 La IA acertó
+          </button>
+
+          <button type="button" class="feedback-btn danger" data-feedback="ia_exagero">
+            ⚠️ La IA exageró
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="top-panel">
+        <div>
+          <span class="label">Velocidad</span>
+          <strong id="speedValue">0 km/h</strong>
+        </div>
+
+        <div>
+          <span class="label">Nivel de riesgo</span>
+          <strong id="riskValue">Sin calcular</strong>
+        </div>
+
+        <div>
+          <span class="label">Ruta</span>
+          <strong id="routeValue">Pendiente</strong>
+        </div>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="bottom-panel">
+        <h3>Asistente IA</h3>
+        <p id="aiMessage">
+          Ingresa un destino. RutaSegura AI detectará la hora actual, tu
+          ubicación y el riesgo urbano para recomendar una ruta segura.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+  <script src="data.js"></script>
+  <script src="ai.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
